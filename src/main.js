@@ -15,3 +15,17 @@ document.querySelectorAll('section').forEach(section => {
     section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
     observer.observe(section);
 });
+
+const images = document.querySelectorAll('.carousel-item');
+let currentIndex = 0;
+
+if (images.length > 0) {
+    setInterval(() => {
+        images[currentIndex].classList.remove('opacity-100');
+        images[currentIndex].classList.add('opacity-0');
+        currentIndex = (currentIndex + 1) % images.length;
+        
+        images[currentIndex].classList.remove('opacity-0');
+        images[currentIndex].classList.add('opacity-100');
+    }, 4000);
+}
